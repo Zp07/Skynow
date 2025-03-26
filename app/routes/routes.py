@@ -21,4 +21,6 @@ def get_weather_api(city: str, db: Session = Depends(get_db)):
     db.refresh(new_entry)
 
     return new_entry
+
+#
     
