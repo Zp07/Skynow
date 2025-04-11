@@ -12,3 +12,5 @@ __pycache__/
 .git
 .gitignore
 tests/
+requirements.txt
+!requirements.txt
