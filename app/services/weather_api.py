@@ -5,6 +5,10 @@ WEATHER_API_KEY= os.getenv("WEATHER_API_KEY")
 BASE_URL = os.getenv("WEATHER_API_BASE_URL")
 
 def get_weather_city(city: str):
+    
+    if not WEATHER_API_KEY:
+        raise ValueError("API KEY NOT CONFIG")
+    
     params = {
         "key": WEATHER_API_KEY,
         "q": city,
@@ -12,9 +16,6 @@ def get_weather_city(city: str):
     }
     response = requests.get(BASE_URL, params=params)
 
-    if not WEATHER_API_KEY:
-        raise ValueError("API KEY NOT CONFIG")
-    
     if response.status_code == 200:
         data = response.json()
         return {

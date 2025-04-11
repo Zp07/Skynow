@@ -13,5 +13,5 @@ Base.metadata.create_all(bind=engine)
 
 @app.get("/")
 def root():
-    return {"message": "API funcionando correctamente"}
+    return {"message": "SkyNow Up and running"}
 

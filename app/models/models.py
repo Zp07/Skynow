@@ -23,13 +23,13 @@ class WeatherData(Base):
     wind_speed = Column(Float)
     wind_direction = Column(String)
     pressure = Column(Float)
-    precitipation = Column(Float)
+    precipitation = Column(Float)
     cloud_cover = Column(Integer)
     feels_like = Column(Float)
     dew_point = Column(Float)
     visibility = Column(Float)
     uv_index = Column(Integer)
-    gus_speed = Column(Float)
+    gust_speed = Column(Float)
 
     #Propiedad de fecha de registro
     recorded_at = Column(DateTime, default=datetime.utcnow)
