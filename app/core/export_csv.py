@@ -6,7 +6,7 @@ from datetime import datetime
 import os
 
 
-def export_csv():
+def export_csv(filename: str = None) -> str | None:
     db: Session = SessionLocal()
 
     # Se obtienen los datos de la base de datos
@@ -14,8 +14,8 @@ def export_csv():
     db.close()
 
     if not weather_records:
-        print("No hay datos para exportar")
-        return
+        print("⚠️  No hay datos en la base de datos para exportar.")
+        return None
     
     # Crear el directorio de exportación si no existe
     os.makedirs("exports", exist_ok=True)
@@ -44,7 +44,6 @@ def export_csv():
     
         "gust_speed": record.gust_speed,
         "recorded_at": record.recorded_at.strftime("%Y-%m-%d %H:%M:%S"),
-        "created_at": record.created_at.strftime("%Y-%m-%d %H:%M:%S"),
     } 
     for record in weather_records ]
 
@@ -52,9 +51,11 @@ def export_csv():
     df = pd.DataFrame(data)
 
     # Definir el nombre del archivo con la fecha
-    filename = f"exports/weather_data_{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.csv"
+    if not filename:
+        filename = f"exports/weather_data_{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.csv"
 
     # Guardar en CSV
     df.to_csv(filename, index=False)
-    print(f"Archivo CSV exportado: {filename}")
+    print(f"📁 Archivo CSV exportado: {filename}")
+    
     return filename
