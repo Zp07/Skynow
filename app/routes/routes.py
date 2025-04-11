@@ -1,6 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException
+from fastapi.responses import FileResponse
 from sqlalchemy.orm import Session
+import os
 from app.core.database import get_db
+from app.core.export_csv import export_csv
 from app.models.models import WeatherData
 from app.schemas.schemas import WeatherResponse
 from app.services.weather_api import get_weather_city
@@ -22,5 +25,14 @@ def get_weather_api(city: str, db: Session = Depends(get_db)):
 
     return new_entry
 
-#
+#Exportar datos de la BD a un archivo CSV
+@router.get("/export")
+def export_weather_data():
+    filename = export_csv()
+
+    if not filename:
+        raise HTTPException(status_code=404, detail="No data to export")
+    
+    return FileResponse(path=filename, filename=os.path.basename(filename), media_type='text/csv')
+
     
