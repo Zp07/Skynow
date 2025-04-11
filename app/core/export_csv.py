@@ -35,7 +35,7 @@ def export_csv():
         "wind_speed": record.wind_speed,
         "wind_direction": record.wind_direction,
         "pressure": record.pressure,
-        "precipitation": record.precitipation,
+        "precipitation": record.precipitation,
         "cloud_cover": record.cloud_cover,
         "feels_like": record.feels_like,
         "dew_point": record.dew_point,

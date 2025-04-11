@@ -34,6 +34,19 @@ services:
     networks:
       - weather_network
     command: ["uvicorn", "app.main:app","--host","0.0.0.0","--port","8000","--reload"]
+  scheduler:
+    build: .
+    container_name: Skynow_scheduler
+    restart: always
+    depends_on:
+      - db
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    networks:
+      - weather_network
+    command: python -m app.core.schedule
 
 volumes:
     pg_data:
