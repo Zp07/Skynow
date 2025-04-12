@@ -39,3 +39,6 @@ CITIES = [
 
 # Cantidad total de ciudades
 TOTAL_CITIES = len(CITIES)
+
+# Todas las ciudades
+ALL_CITIES = CITIES
