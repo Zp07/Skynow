@@ -19,14 +19,12 @@ def fetch_and_store_weather():
     db = SessionLocal()
     try:
         for city in ALL_CITIES:
-            print(f"🌍 Recolectando clima para {city}...")
             # Se obtienen los datos de la API
             weather_data = get_weather_city(city)
             # Se verifica si se obtuvieron datos
             if weather_data:
                 new_entry = WeatherData(**weather_data)
                 db.add(new_entry)
-                print(f"[{datetime.now()}] ✅ Datos guardados para: {city}")
             else:
                 print(f"[{datetime.now()}] ⚠️ No se pudieron obtener datos para: {city}")
         

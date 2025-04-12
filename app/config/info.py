@@ -1,40 +1,40 @@
-
 # Lista de ciudades estratégicas para la recopilación de datos climáticos
 # Organizadas por continente para mejor legibilidad
 
 CITIES = [
     # América del Norte 🇺🇸🇨🇦🇲🇽
-    "New York, USA", "Los Angeles, USA", "Chicago, USA", "Miami, USA", "Houston, USA",
-    "Toronto, Canada", "Vancouver, Canada", "Montreal, Canada", "Mexico City, Mexico", "Guadalajara, Mexico",
+    "New York", "Los Angeles", "Chicago", "Miami", "Houston",
+    "Toronto", "Vancouver", "Montreal", "Mexico City", "Guadalajara","San diego",
     
     # América Central y Caribe 🌴
-    "Panama City, Panama", "San Jose, Costa Rica", "Havana, Cuba", "Kingston, Jamaica", "Santo Domingo, Dominican Republic",
+    "Panama City", "San Jose", "Havana", "Kingston", "Santo Domingo",
     
     # América del Sur 🌎
-    "Buenos Aires, Argentina", "Santiago, Chile", "Bogotá, Colombia", "Lima, Peru", "Quito, Ecuador",
-    "Rio de Janeiro, Brazil", "São Paulo, Brazil", "Montevideo, Uruguay", "La Paz, Bolivia", "Asunción, Paraguay",
-    "Patagonia, Chile", "Antofagasta, Chile", "Cali, Colombia", "Villagorgona, Colombia", "Amazonas, Brazil",
+    "Buenos Aires", "Santiago", "Bogota", "Lima", "Quito",
+    "Rio de Janeiro", "Sao Paulo", "Montevideo", "La Paz", "Asuncion","Barranquilla",
+    "Valledupar","viña del mar", "Antofagasta", "Cali", "Candelaria",
+    "Coari","Cartagena", "Palmira", "Medellin", "Santa Marta",
     
     # Europa 🇪🇺
-    "London, United Kingdom", "Paris, France", "Berlin, Germany", "Madrid, Spain", "Rome, Italy",
-    "Amsterdam, Netherlands", "Brussels, Belgium", "Vienna, Austria", "Oslo, Norway", "Stockholm, Sweden",
-    "Copenhagen, Denmark", "Dublin, Ireland", "Lisbon, Portugal", "Warsaw, Poland", "Athens, Greece",
+    "London", "Paris", "Berlin", "Madrid", "Rome","Barcelona","Valencia",
+    "Amsterdam", "Brussels", "Vienna", "Oslo", "Stockholm",
+    "Copenhagen", "Dublin", "Lisbon", "Warsaw", "Athens",
     
     # África 🌍
-    "Cairo, Egypt", "Johannesburg, South Africa", "Lagos, Nigeria", "Nairobi, Kenya", "Casablanca, Morocco",
-    "Cape Town, South Africa", "Accra, Ghana", "Addis Ababa, Ethiopia", "Dakar, Senegal", "Luanda, Angola",
+    "Cairo", "Johannesburg", "Lagos", "Nairobi", "Casablanca",
+    "Cape Town", "Accra", "Addis Ababa", "Dakar", "Luanda",
     
     # Asia 🌏
-    "Tokyo, Japan", "Beijing, China", "Shanghai, China", "Seoul, South Korea", "Bangkok, Thailand",
-    "Jakarta, Indonesia", "Manila, Philippines", "Kuala Lumpur, Malaysia", "New Delhi, India", "Mumbai, India",
-    "Dubai, UAE", "Tehran, Iran", "Istanbul, Turkey", "Baghdad, Iraq", "Riyadh, Saudi Arabia",
+    "Tokyo", "Beijing", "Shanghai", "Seoul", "Bangkok",
+    "Jakarta", "Manila", "Kuala Lumpur", "New Delhi", "Mumbai",
+    "Dubai", "Tehran", "Istanbul", "Baghdad", "Riyadh","Murmansk","Baku",
     
     # Oceanía 🌊
-    "Sydney, Australia", "Melbourne, Australia", "Auckland, New Zealand", "Wellington, New Zealand", "Suva, Fiji",
+    "Sydney", "Melbourne", "Auckland", "Wellington", "Suva","Darwin","Hobart",
     
     # Ciudades con climas extremos ❄️🔥
-    "Yakutsk, Russia", "Death Valley, USA", "Ushuaia, Argentina", "Nuuk, Greenland", "Reykjavik, Iceland",
-    "Timbuktu, Mali", "McMurdo Station, Antarctica", "Dallol, Ethiopia", "Oymyakon, Russia", "El Azizia, Libya"
+    "Yakutsk", "Ushuaia", "Nuuk", "Reykjavik",
+    "Timbuktu", "Dallol", "Oymyakon", "El Azizia","Ulan Bator"
 ]
 
 # Cantidad total de ciudades
