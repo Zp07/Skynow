@@ -3,6 +3,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from fastapi.responses import FileResponse
 from sqlalchemy.orm import Session
 from app.core.database import get_db
+from app.core.schedule import fetch_and_store_weather
 from app.core.export_csv import export_csv
 from app.models.models import WeatherData
 from app.schemas.schemas import WeatherResponse
@@ -24,6 +25,16 @@ def get_weather_api(city: str, db: Session = Depends(get_db)):
     db.refresh(new_entry)
 
     return new_entry
+
+# Consumir API MANUALMENTE del modulo schedule
+@router.post("/weather/fetch_all")
+def fetch_all_weather():
+    "Ejecuta manualmente el modulo schedule"
+    try:
+        fetch_and_store_weather()
+        return {"message": "✅ Recolección manual completada "}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"❌ Error: {str(e)}")
 
 #Exportar datos de la BD a un archivo CSV
 @router.get("/export")
