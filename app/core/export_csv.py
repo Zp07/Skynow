@@ -2,7 +2,7 @@ import pandas as pd
 from sqlalchemy.orm import Session
 from app.core.database import SessionLocal
 from app.models.models import WeatherData
-from datetime import datetime
+from datetime import datetime, date
 import os
 
 
@@ -10,7 +10,12 @@ def export_csv(filename: str = None) -> str | None:
     db: Session = SessionLocal()
 
     # Se obtienen los datos de la base de datos
-    weather_records = db.query(WeatherData).all()
+    today = date.today()
+    weather_records = db.query(WeatherData)\
+        .filter(WeatherData.recorded_at >= datetime.combine(today, datetime.min.time()))\
+        .filter(WeatherData.recorded_at <= datetime.combine(today, datetime.max.time()))\
+        .all()
+    
     db.close()
 
     if not weather_records:
@@ -52,7 +57,7 @@ def export_csv(filename: str = None) -> str | None:
 
     # Definir el nombre del archivo con la fecha
     if not filename:
-        filename = f"exports/weather_data_{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.csv"
+        filename = f"exports/weather_data_{today.strftime('%Y-%m-%d_%H-%M-%S')}.csv"
 
     # Guardar en CSV
     df.to_csv(filename, index=False)
